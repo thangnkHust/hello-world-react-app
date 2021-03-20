@@ -1,0 +1,11 @@
+.TodoItem {
+    font: 24px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4em;
+    color: #4d4d4d;
+    font-weight: 300;
+}
+
+.TodoItem-done {
+  text-decoration: line-through;
+  opacity: .3;
+}
