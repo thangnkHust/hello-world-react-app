@@ -1,5 +1,6 @@
 import './App.css';
 import TodoItem from './components/TodoItem';
+import TrafficLight from './components/TrafficLight';
 
 var todoItems = [
   {title: 'Di choi', isDone: true},
@@ -21,6 +22,7 @@ function App() {
         {
           todoItems.length === 0 && "Nothing here"
         }
+        <TrafficLight />
     </div>
   );
 }
