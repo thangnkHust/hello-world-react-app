@@ -13,7 +13,7 @@ console.log(todoItems);
 function App() {
   return (
     <div className="App">
-        <h2>Todo List</h2>
+        <h2 style={{textAlign: 'center'}}>Todo List</h2>
         {
           todoItems.length > 0 && todoItems.map((item, index) => {
             return <TodoItem key={index} item={item}/>
