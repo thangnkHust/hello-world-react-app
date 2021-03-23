@@ -1,22 +1,25 @@
-import './TrafficLight.css'
+import React, { Component } from 'react'
 import classNames from 'classnames'
-import React, {Component} from 'react'
+import './TrafficLight.css'
+import Button from './Button';
 
 const RED = 0
 const ORANGE = 1
 const GREEN = 2
 
 class TrafficLight extends Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
-      currentColor: RED
+      currentColor: RED,
+      test: 0
     }
+    // this.handleClickNextColor = this.handleClickNextColor.bind(this)
+    // this.buttonSendToTrafficLight = this.buttonSendToTrafficLight.bind(this)
   }
 
-  
-  getNextColor(color) 
-  {
+
+  getNextColor(color) {
     switch (color) {
       case RED:
         return ORANGE
@@ -27,15 +30,12 @@ class TrafficLight extends Component {
     }
   }
 
-  handleClickNextColor(){
-    this.setState({
-      currentColor: this.getNextColor(this.state.currentColor)
-    })
-    console.log(this.state.currentColor);
+  buttonSendToTrafficLight = (dataFromButton) => {
+    this.setState({ currentColor: this.getNextColor(dataFromButton) })
   }
 
   render() {
-    const {currentColor} = this.state
+    const { currentColor } = this.state
     return (
       <div className="TrafficLight">
         <div className={classNames('buld', 'red', {
@@ -47,13 +47,13 @@ class TrafficLight extends Component {
         <div className={classNames('buld', 'green', {
           active: currentColor === GREEN
         })}></div>
-        <div>
-          <button onClick={
-            () => {
-              this.handleClickNextColor()
-            }
-          }>Click</button>
-        </div>
+        {/* <div>
+          <button onClick={ this.handleClickNextColor }>Click</button>
+        </div> */}
+        <Button
+          dataFromTrafficLight={{ currentColor: currentColor }}
+          buttonSendToTrafficLight={this.buttonSendToTrafficLight}
+        />
       </div>
     )
   }
