@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { changeColor } from '../actions/Action';
 
 class Button extends Component {
 	constructor(props) {
 		super(props)
-		console.log(props.dataFromTrafficLight);
-	}
-
-	sendDataToTrafficLight = (data) => {
-		this.props.buttonSendToTrafficLight(data)
 	}
 
 	render() {
-		const { currentColor } = this.props.dataFromTrafficLight
 		return (
 			<div>
 				<button
 					onClick={
-						() => this.sendDataToTrafficLight(currentColor)
+						() => this.props.changeColor(this.props.currentColor)
 					}
 				>Click</button>
 			</div>
@@ -24,4 +20,16 @@ class Button extends Component {
 	}
 }
 
-export default Button;
+const mapStateToProps = (state) => {
+	return {
+		currentColor: state.trafficLightReducer.color
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		changeColor: (color) => dispatch(changeColor(color))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Button);
