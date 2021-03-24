@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { changeColor } from '../actions/Action';
+import classNames from 'classnames'
+import './Button.css'
 
 class Button extends Component {
-	constructor(props) {
-		super(props)
-	}
+	// constructor(props) {
+	// 	super(props)
+	// }
 
 	render() {
 		return (
 			<div>
-				<button
+				<button 
+					className={classNames({
+						red: this.props.currentColor === 0,
+						orange: this.props.currentColor === 1,
+						green: this.props.currentColor === 2
+					})}
 					onClick={
 						() => this.props.changeColor(this.props.currentColor)
 					}
@@ -21,6 +28,7 @@ class Button extends Component {
 }
 
 const mapStateToProps = (state) => {
+	// console.log(state.trafficLightReducer.color, 'Button action');
 	return {
 		currentColor: state.trafficLightReducer.color
 	}

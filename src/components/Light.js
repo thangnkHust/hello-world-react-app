@@ -1,12 +1,12 @@
 import React from 'react';
 import classNames from 'classnames'
-
 import {RED, GREEN, ORANGE} from '../contants/constants'
 import { connect } from 'react-redux';
+
 class Light extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   // buttonSendToTrafficLight = (dataFromButton) => {
   //   this.setState({ currentColor: this.getNextColor(dataFromButton) })
@@ -31,6 +31,7 @@ class Light extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     currentColor: state.trafficLightReducer.color
   }

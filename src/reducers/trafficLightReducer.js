@@ -2,7 +2,7 @@ import { CHANGE_COLOR } from "../actions/ActionTypes";
 import { GREEN, ORANGE, RED } from "../contants/constants";
 
 const initialState = {
-  color: GREEN
+  color: RED
 }
 
 export const trafficLightReducer = (state = initialState, action) => {
