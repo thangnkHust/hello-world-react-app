@@ -1,8 +1,8 @@
-import { CHANGE_COLOR } from "./ActionTypes"
+import * as type from "./ActionTypes"
 
 export const changeColor = (currentColor) => {
   return {
-    type: CHANGE_COLOR,
+    type: type.CHANGE_COLOR,
     currentColor
   }
 }

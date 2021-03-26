@@ -1,14 +1,19 @@
 import './TodoItem.css';
+import classNames from 'classnames';
 
 function TodoItem(props){
-  const item = props.item
-  let className = 'TodoItem'
-  if(item.isDone){
-    className += ' TodoItem-done'
-  }
+  // const item = props.item
+  // if(item.isDone){
+  //   className += ' TodoItem-done'
+  // }
+  console.log(props);
   return(
-    <div className={className}>
-      <p>{item.title}</p>
+    <div className={classNames('TodoItem')}>
+      {
+        props.todos.filter(item => item.text).map((item) => {
+          return <p>{item.text}</p>
+        })
+      }
     </div>
   )
 }

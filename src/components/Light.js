@@ -31,7 +31,7 @@ class Light extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return {
     currentColor: state.trafficLightReducer.color
   }

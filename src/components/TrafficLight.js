@@ -5,14 +5,14 @@ import Button from './Button';
 import Light from './Light';
 
 class TrafficLight extends Component {
-  constructor() {
-    super()
-    // this.state = {
-    //   test: 0
-    // }
-    // this.handleClickNextColor = this.handleClickNextColor.bind(this)
-    // this.buttonSendToTrafficLight = this.buttonSendToTrafficLight.bind(this)
-  }
+  // constructor() {
+  //   super()
+  //   // this.state = {
+  //   //   test: 0
+  //   // }
+  //   // this.handleClickNextColor = this.handleClickNextColor.bind(this)
+  //   // this.buttonSendToTrafficLight = this.buttonSendToTrafficLight.bind(this)
+  // }
 
 
 
