@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addItem, markItem } from '../actions/TodoAction';
+import { addItem, markItem, deleteItem } from '../actions/TodoAction';
 import InputForm from '../components/InputForm';
 import TodoItem from '../components/TodoItem';
 import './TodoList.css'
@@ -11,15 +11,15 @@ class TodoList extends Component {
 	}
 
 	render() {
-		console.log(this.props, 'LIST');
+		// console.log(this.props, 'todo list');
 		const { todos } = this.props
 		return (
 			<div className="TodoList">
-				<InputForm handleSubmit={this.handleSubmit}/>
+				<InputForm handleSubmit={this.handleSubmit} />
 				<div className="list-items">
 					{
-						todos.map(item => {
-							return <TodoItem item={item} markItem={this.props.markItem}/>
+						todos.map((item, index) => {
+							return <TodoItem key={index} item={item} markItem={this.props.markItem} deleteItem={this.props.deleteItem}/>
 						})
 					}
 				</div>
@@ -41,6 +41,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		markItem: (id) => {
 			dispatch(markItem(id))
+		},
+		deleteItem: (id) => {
+			dispatch(deleteItem(id))
 		}
 	}
 }

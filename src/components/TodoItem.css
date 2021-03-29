@@ -4,9 +4,32 @@
     color: #4d4d4d;
     font-weight: 300;
     /* text-align: center; */
+  width: 80%;
 }
 
 .TodoItem_done {
   text-decoration: line-through;
   opacity: .3;
 }
+
+.item-box {
+  margin: auto;
+  display: flex;
+}
+
+.clear-box {
+  width: 20%;
+  padding: 5px 0;
+}
+
+.clear-box > p {
+  margin: auto;
+  float: right;
+  cursor: pointer;
+}
+
+.TodoItem > p {
+  margin: auto;
+  cursor: pointer
+}
+

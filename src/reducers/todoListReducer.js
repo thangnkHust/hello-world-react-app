@@ -1,4 +1,4 @@
-import { ADD_ITEM, MARK_ITEM } from '../actions/ActionTypes';
+import { ADD_ITEM, MARK_ITEM, DELETE_ITEM } from '../actions/ActionTypes';
 
 const initialState = [{
   text: 'Todo List',
@@ -19,6 +19,8 @@ export function todoListReducer(state = initialState, action) {
       return state.map((item) =>
         item.id === action.id ? {...item, marked: !item.marked} : item 
       )
+    case DELETE_ITEM:
+        return state.filter(item => item.id !== action.id)
     // case CLEAR_MARKED:
       
     default:
