@@ -18,18 +18,21 @@ class InputForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		// if(this.state.input === ''){
-		// 	alert("Hay nhap xau")
-		// 	return;
-		// }
+		if(this.state.input === ''){
+			alert("Hay nhap xau")
+			return;
+		}  
 		this.props.handleSubmit(this.state.input)
+		this.setState({
+			input: ''
+		})
 	}
 
 	render() {
 		return (
 			<div className="InputForm">
 				<form method="post" onSubmit={this.handleSubmit}>
-					<input type="text" onBlur={this.handleSetState} placeholder="Enter to add todo list" />
+					<input type="text" onChange={this.handleSetState} value={this.state.input} placeholder="Enter to add todo list" />
 					<button type="submit">Add</button>
 				</form>
 			</div>

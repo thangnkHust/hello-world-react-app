@@ -6,7 +6,7 @@
     /* text-align: center; */
 }
 
-.TodoItem-done {
+.TodoItem_done {
   text-decoration: line-through;
   opacity: .3;
 }

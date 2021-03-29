@@ -1,16 +1,16 @@
 import { ADD_ITEM, MARK_ITEM } from '../actions/ActionTypes';
 
 const initialState = [{
-  text: 'abc',
-  marked: false,
+  text: 'Todo List',
+  marked: true,
   id: 0
 }]
 
 export function todoListReducer(state = initialState, action) {
   switch(action.type) {
-    case ADD_ITEM: 
+    case ADD_ITEM:
       return [{
-        id: (state.length === 0) ? 0 : state[0].id += 1,
+        id: (state.length === 0) ? 0 : state[0].id + 1,
         text: action.text,
         marked: false
       }, ...state]

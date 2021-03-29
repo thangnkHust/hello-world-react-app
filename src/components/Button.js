@@ -10,9 +10,6 @@ class Button extends Component {
 	// }
 
 	render() {
-		const {currentColor, changeColor} = this.props
-		// console.log(currentColor);
-		// console.log(changeColor);
 		return (
 			<div>
 				<button 

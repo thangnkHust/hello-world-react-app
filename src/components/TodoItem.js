@@ -1,21 +1,25 @@
+import React, {Component} from 'react';
 import './TodoItem.css';
 import classNames from 'classnames';
 
-function TodoItem(props){
-  // const item = props.item
-  // if(item.isDone){
-  //   className += ' TodoItem-done'
-  // }
-  console.log(props);
-  return(
-    <div className={classNames('TodoItem')}>
-      {
-        props.todos.filter(item => item.text).map((item) => {
-          return <p>{item.text}</p>
-        })
-      }
-    </div>
-  )
+class TodoItem extends Component {
+  constructor(){
+    super()
+  }
+
+  onHandleClickItem = () => {
+    this.props.markItem(this.props.item.id)
+    // console.log(this.props);
+  }
+  render() {
+    return(
+      <div className={classNames('TodoItem', {
+        TodoItem_done: this.props.item.marked === true
+      })} onClick={this.onHandleClickItem}>
+        <p>{this.props.item.text}</p>
+      </div>
+    )
+  }
 }
 
 export default TodoItem;
