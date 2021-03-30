@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './InputForm.css'
 
 class InputForm extends Component {
 	constructor() {
@@ -18,10 +17,10 @@ class InputForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		if(this.state.input === ''){
+		if (this.state.input === '') {
 			alert("Hay nhap xau")
 			return;
-		}  
+		}
 		this.props.handleSubmit(this.state.input)
 		this.setState({
 			input: ''
@@ -31,10 +30,15 @@ class InputForm extends Component {
 	render() {
 		return (
 			<div className="InputForm">
-				<form method="post" onSubmit={this.handleSubmit}>
-					<input type="text" onChange={this.handleSetState} value={this.state.input} placeholder="Enter to add todo list" />
-					<button type="submit">Add</button>
-				</form>
+				<form onSubmit={this.handleSubmit}>
+					<input 
+						type="text" 
+						class="form-control add-task" 
+						placeholder="New Task..." 
+						onChange={this.handleSetState} 
+						value={this.state.input}
+					/>
+        </form>
 			</div>
 		)
 	}

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addItem, markItem, deleteItem } from '../actions/TodoAction';
 import InputForm from '../components/InputForm';
+import Filter from '../components/Filter';
 import TodoItem from '../components/TodoItem';
-import './TodoList.css'
 
 class TodoList extends Component {
 	handleSubmit = (text) => {
@@ -11,12 +11,12 @@ class TodoList extends Component {
 	}
 
 	render() {
-		console.log(this.props, 'todo list');
 		const { todos } = this.props
 		return (
 			<div className="TodoList">
 				<InputForm handleSubmit={this.handleSubmit} />
-				<div className="list-items">
+				<Filter />
+				<div class="todo-list">
 					{
 						todos.map((item, index) => {
 							return (

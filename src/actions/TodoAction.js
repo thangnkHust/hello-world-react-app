@@ -21,9 +21,8 @@ export const markItem = (id) => {
   }
 }
 
-// export const clearMarked = (id) => {
-//   return{
-//     type: type.CLEAR_MARKED,
-//     id
-//   }
-// }
+export const filterActive = () => {
+  return{
+    type: type.FILTER_ACTIVE,
+  }
+}

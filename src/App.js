@@ -4,18 +4,16 @@ import TodoList from './containers/TodoList';
 
 function App() {
   return (
-    <div className="App">
-      <h2 style={{ textAlign: 'center' }}>Todo List</h2>
-      <TodoList />
-      {/* {
-          todoItems.length > 0 && todoItems.map((item, index) => {
-            return <TodoItem key={index} item={item}/>
-          })
-        }
-        {
-          todoItems.length === 0 && "Nothing here"
-        } */}
-      <hr />
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12">
+          <div className="card card-white">
+            <div className="card-body">
+              <TodoList />
+            </div>
+          </div>
+        </div>
+      </div>
       <TrafficLight />
     </div>
   );
