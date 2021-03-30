@@ -6,19 +6,29 @@ import Filter from '../components/Filter';
 import TodoItem from '../components/TodoItem';
 
 class TodoList extends Component {
+
+	constructor (){
+		super()
+		this.state = {
+			selected: 'all'
+		}
+	}
+
 	handleSubmit = (text) => {
 		this.props.addItem(text)
 	}
 
 	render() {
 		const { todos } = this.props
+		console.log(todos);
 		return (
 			<div className="TodoList">
 				<InputForm handleSubmit={this.handleSubmit} />
-				<Filter />
+				<Filter
+				/>
 				<div class="todo-list">
 					{
-						todos.map((item, index) => {
+						todos.data.map((item, index) => {
 							return (
 								<TodoItem
 									key={index}
@@ -51,7 +61,7 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		deleteItem: (id) => {
 			dispatch(deleteItem(id))
-		}
+		},
 	}
 }
 

@@ -1,6 +1,7 @@
 import './App.css';
 import TrafficLight from './components/TrafficLight';
 import TodoList from './containers/TodoList';
+import 'font-awesome/css/font-awesome.min.css';
 
 function App() {
   return (

@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { Component } from 'react';
 
 class Filter extends Component {
@@ -8,10 +9,18 @@ class Filter extends Component {
           <a href="#" className="nav-link">All</a>
         </li>
         <li className="nav-item active-task">
-          <a href="#" className="nav-link">Active</a>
+          <a href="#" 
+            className={classNames('nav-link')} 
+            onClick={this.props.filterActive}
+          >
+            Active
+          </a>
         </li>
         <li className="nav-item completed-task">
-          <a href="#" className="nav-link">Completed</a>
+          <a href="#" 
+            className="nav-link"
+            onClick={this.props.filterUnactive}
+          >Completed</a>
         </li>
       </ul>
     )

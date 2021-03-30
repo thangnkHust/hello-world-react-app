@@ -20,9 +20,3 @@ export const markItem = (id) => {
     id
   }
 }
-
-export const filterActive = () => {
-  return{
-    type: type.FILTER_ACTIVE,
-  }
-}
