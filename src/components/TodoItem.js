@@ -10,10 +10,10 @@ class TodoItem extends Component {
   }
 
   onHandleClickDelete = () => {
-    // if(window.confirm("Ready?")){
-      this.props.deteteItem(this.props.item.id)
-      // return
-    // }
+    if(window.confirm("Ready?")){
+      this.props.deleteItem(this.props.item.id)
+      return
+    }
   }
 
   render() {

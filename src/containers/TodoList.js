@@ -11,7 +11,7 @@ class TodoList extends Component {
 	}
 
 	render() {
-		// console.log(this.props, 'todo list');
+		console.log(this.props, 'todo list');
 		const { todos } = this.props
 		return (
 			<div className="TodoList">
@@ -19,7 +19,14 @@ class TodoList extends Component {
 				<div className="list-items">
 					{
 						todos.map((item, index) => {
-							return <TodoItem key={index} item={item} markItem={this.props.markItem} deleteItem={this.props.deleteItem}/>
+							return (
+								<TodoItem
+									key={index}
+									item={item}
+									markItem={this.props.markItem}
+									deleteItem={this.props.deleteItem}
+								/>
+							)
 						})
 					}
 				</div>
