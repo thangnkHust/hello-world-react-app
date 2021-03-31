@@ -5,7 +5,6 @@ class TodoItem extends Component {
 
   onHandleClickItem = () => {
     this.props.markItem(this.props.item.id)
-    // console.log(this.props);
   }
 
   onHandleClickDelete = () => {
@@ -19,7 +18,7 @@ class TodoItem extends Component {
     var {item} = this.props
     return (
       <div className={classNames('todo-item', {
-        complete: this.props.item.marked
+        complete: item.marked
       })}>
         <div className="checker" >
           <span className="">

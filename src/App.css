@@ -18,6 +18,10 @@ body{
   background: #f7f7f7
 }
 
+.todo-nav .active .nav-link {
+  color: red;
+}
+
 .todo-list.only-active .todo-item.complete {
   display: none
 }

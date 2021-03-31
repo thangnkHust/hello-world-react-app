@@ -20,3 +20,10 @@ export const markItem = (id) => {
     id
   }
 }
+
+export const updateFilter = (status) => {
+  return {
+    type: type.UPDATE_FILTER,
+    status
+  }
+}

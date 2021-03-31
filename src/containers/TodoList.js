@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addItem, markItem, deleteItem } from '../actions/TodoAction';
+import { addItem, markItem, deleteItem, updateFilter } from '../actions/TodoAction';
 import InputForm from '../components/InputForm';
 import Filter from '../components/Filter';
 import TodoItem from '../components/TodoItem';
+import * as status from '../contants/todoList';
 
 class TodoList extends Component {
 
-	constructor (){
-		super()
-		this.state = {
-			selected: 'all'
-		}
-	}
+	// constructor() {
+	// 	super()
+	// 	this.state = {
+	// 		selected: 'all'
+	// 	}
+	// }
 
 	handleSubmit = (text) => {
 		this.props.addItem(text)
@@ -20,15 +21,20 @@ class TodoList extends Component {
 
 	render() {
 		const { todos } = this.props
-		console.log(todos);
 		return (
 			<div className="TodoList">
 				<InputForm handleSubmit={this.handleSubmit} />
 				<Filter
+					filter={todos.filter}
+					onChangeStatus={this.props.updateFilter}
 				/>
-				<div class="todo-list">
+				<div className="todo-list">
 					{
-						todos.data.map((item, index) => {
+						todos.data.filter((item) => {
+							return todos.filter === status.ALL
+								|| (todos.filter === status.ACTIVE && !item.marked)
+								|| (todos.filter === status.COMPLETED && item.marked)
+						}).map((item, index) => {
 							return (
 								<TodoItem
 									key={index}
@@ -62,6 +68,9 @@ const mapDispatchToProps = (dispatch) => {
 		deleteItem: (id) => {
 			dispatch(deleteItem(id))
 		},
+		updateFilter: status => {
+			dispatch(updateFilter(status))
+		}
 	}
 }
 
