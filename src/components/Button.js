@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { changeColor } from '../actions/Action';
+import classNames from 'classnames'
+import './Button.css'
 
 class Button extends Component {
-	constructor(props) {
-		super(props)
-		console.log(props.dataFromTrafficLight);
-	}
-
-	sendDataToTrafficLight = (data) => {
-		this.props.buttonSendToTrafficLight(data)
-	}
+	// constructor(props) {
+	// 	super(props)
+	// }
 
 	render() {
-		const { currentColor } = this.props.dataFromTrafficLight
 		return (
 			<div>
-				<button
+				<button 
+					className={classNames({
+						red: this.props.currentColor === 0,
+						orange: this.props.currentColor === 1,
+						green: this.props.currentColor === 2
+					})}
 					onClick={
-						() => this.sendDataToTrafficLight(currentColor)
+						() => this.props.changeColor(this.props.currentColor)
 					}
 				>Click</button>
 			</div>
@@ -24,4 +27,17 @@ class Button extends Component {
 	}
 }
 
-export default Button;
+const mapStateToProps = (state) => {
+	// console.log(state.trafficLightReducer.color, 'Button action');
+	return {
+		currentColor: state.trafficLightReducer.color
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		changeColor: (color) => dispatch(changeColor(color))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Button);

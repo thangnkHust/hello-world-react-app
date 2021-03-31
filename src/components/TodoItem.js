@@ -1,16 +1,48 @@
-import './TodoItem.css';
+import React, { Component } from 'react';
+import classNames from 'classnames';
 
-function TodoItem(props){
-  const item = props.item
-  let className = 'TodoItem'
-  if(item.isDone){
-    className += ' TodoItem-done'
+class TodoItem extends Component {
+
+  onHandleClickItem = () => {
+    this.props.markItem(this.props.item.id)
   }
-  return(
-    <div className={className}>
-      <p>{item.title}</p>
-    </div>
-  )
+
+  onHandleClickDelete = () => {
+    if (window.confirm("Ready?")) {
+      this.props.deleteItem(this.props.item.id)
+      return
+    }
+  }
+
+  render() {
+    var {item} = this.props
+    return (
+      <div className={classNames('todo-item', {
+        complete: item.marked
+      })}>
+        <div className="checker" >
+          <span className="">
+            <input 
+              type="checkbox"
+              checked={item.marked}
+              onChange={this.onHandleClickItem}
+            />
+          </span>
+        </div>
+
+        <span style={{
+          padding: "10px 10px"
+        }}>{this.props.item.text}</span>
+
+        <a 
+          className="float-right remove-todo-item" 
+          
+        >
+          <i className="fas fa-times" onClick={this.onHandleClickDelete}></i>
+        </a>
+      </div>
+    )
+  }
 }
 
 export default TodoItem;
